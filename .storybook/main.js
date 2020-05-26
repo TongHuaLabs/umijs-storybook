@@ -9,6 +9,14 @@ module.exports = {
       loader: require.resolve('babel-loader'),
       options: {
         presets: [['react-app', { flow: false, typescript: true }]],
+        plugins: [
+          ['import', { libraryName: 'antd', style: 'css' }, 'antd'],
+          [
+            'import',
+            { libraryName: 'antd-mobile', style: 'css' },
+            'antd-mobile',
+          ],
+        ],
       },
     });
     config.resolve.extensions.push('.ts', '.tsx');
