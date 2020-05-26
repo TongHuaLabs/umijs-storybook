@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../stories/**/*.stories.tsx'],
   addons: ['@storybook/addon-actions', '@storybook/addon-links'],
@@ -10,6 +12,27 @@ module.exports = {
       },
     });
     config.resolve.extensions.push('.ts', '.tsx');
+    config.module.rules.push({
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: {
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+        },
+        {
+          loader: 'less-loader',
+        },
+      ],
+      include: path.resolve(__dirname, '../'),
+    });
     return config;
   },
 };
