@@ -38,7 +38,7 @@ yarn add babel-preset-react-app --dev
 
 3. Edit tsconfig.json
 
-```json
+```javascript
 {
   "compilerOptions": {
     ...
@@ -50,7 +50,7 @@ yarn add babel-preset-react-app --dev
 }
 ```
 
-4. storybook.main.js
+4. .storybook/main.js
 
 ```javascript
 const path = require('path');
